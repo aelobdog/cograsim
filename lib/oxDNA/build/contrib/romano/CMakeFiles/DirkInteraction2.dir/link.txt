@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,DirkInteraction2.so -o ../../../contrib/romano/DirkInteraction2.so CMakeFiles/DirkInteraction2.dir/src/Interactions/DirkInteraction2.cpp.o 

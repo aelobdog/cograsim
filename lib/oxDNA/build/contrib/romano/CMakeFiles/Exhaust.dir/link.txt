@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,Exhaust.so -o ../../../contrib/romano/Exhaust.so CMakeFiles/Exhaust.dir/src/Backends/MCMoves/Exhaust.cpp.o 

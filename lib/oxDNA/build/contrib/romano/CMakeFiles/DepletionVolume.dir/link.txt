@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,DepletionVolume.so -o ../../../contrib/romano/DepletionVolume.so CMakeFiles/DepletionVolume.dir/src/Backends/MCMoves/DepletionVolume.cpp.o 

@@ -1,0 +1,252 @@
+/*
+ * OGLCylinder.cpp
+ *
+ *  Created on: 03/nov/2013
+ *      Author: Flavio
+ */
+
+
+#include "OGLCylinder.h"
+
+using std::vector;
+
+int OGLCylinder::_resolution = -1;
+std::vector<GLfloat> OGLCylinder::_vertices_lf;
+std::vector<GLfloat> OGLCylinder::_normals_lf;
+std::vector<GLushort> OGLCylinder::_indices_lf;
+std::vector<GLfloat> OGLCylinder::_vertices_uf;
+std::vector<GLfloat> OGLCylinder::_normals_uf;
+std::vector<GLushort> OGLCylinder::_indices_uf;
+std::vector<GLfloat> OGLCylinder::_vertices_tube;
+std::vector<GLfloat> OGLCylinder::_normals_tube;
+std::vector<GLushort> OGLCylinder::_indices_tube;
+
+
+OGLCylinder::OGLCylinder() {
+
+}
+
+OGLCylinder::~OGLCylinder() {
+
+}
+
+void OGLCylinder::_build(int res) {
+	glm::vec3 axis; // (0., 1. / sqrt(2.), 1./sqrt(2.));
+	float radius = 1.f;
+	float const R = 1./(float)(res-1);
+	float const S = 1./(float)(res-1);
+	
+	axis = glm::vec3 (0., 0., 1.);
+	
+	// lower face 
+	/*
+	vector<GLfloat> &vert = OGLCylinder::_vertices_lf;
+	vector<GLfloat> &norm = OGLCylinder::_normals_lf;
+	vector<GLushort> &ind = OGLCylinder::_indices_lf;
+	vert.resize(res * res * 3);
+	norm.resize(res * res * 3);
+	vector<GLfloat>::iterator v = vert.begin();
+	vector<GLfloat>::iterator n = norm.begin();
+	for(int r = 0; r < res; r++) {
+		for(int s = 0; s < res; s++) {
+			float const x = cos(2*M_PI * s * S) * sin( M_PI * r * R );
+			float const y = sin(2*M_PI * s * S) * sin( M_PI * r * R );
+			float const z = - 0.5;
+			
+			*v++ = x * radius;
+			*v++ = y * radius;
+			*v++ = z;
+
+			*n++ = 0.;
+			*n++ = 0.;
+			*n++ = -1.;
+			
+		}
+	}
+	ind.resize(res * res * 4);
+	vector<GLushort>::iterator i = ind.begin();
+	for(int r = 0; r < res-1; r++) {
+		for(int s = 0; s < res-1; s++) {
+			*i++ = r * res + s;
+			*i++ = r * res + (s+1);
+			*i++ = (r+1) * res + (s+1);
+			*i++ = (r+1) * res + s;
+		}
+	}*/
+	
+	//vert = OGLCylinder::_vertices_tube;
+	//norm = OGLCylinder::_normals_tube;
+	//ind = OGLCylinder::_indices_tube;
+	vector<GLfloat> &vert = OGLCylinder::_vertices_tube;
+	vector<GLfloat> &norm = OGLCylinder::_normals_tube;
+	vector<GLushort> &ind = OGLCylinder::_indices_tube;
+	vert.resize(res * res * 3);
+	norm.resize(res * res * 3);
+	int cntr = 0;
+	for(int r = 0; r < res; r++) {
+		float const z = r * 1. / (res - 1) - 0.5;
+		for(int s = 0; s < res; s++) {
+			float const x = cos (s * 2. * M_PI / res);
+			float const y = sin (s * 2. * M_PI / res);
+			
+			/*	
+			*v++ = x;
+			*v++ = y;
+			*v++ = z;
+
+			*n++ = x;
+			*n++ = y;
+			*n++ = 0.;
+			*/
+			
+			vert[cntr] = x;
+			vert[cntr + 1] = y;
+			vert[cntr + 2] = z;
+			
+			norm[cntr] = x;
+			norm[cntr + 1] = y;
+			norm[cntr + 2] = 0.;
+			
+			printf ("%g %g %g CACA\n", x, y, z);
+			
+			cntr += 3;
+		}
+	}
+	printf ("caca %g %g %g\n", vert[0], vert[1], vert[2]);
+	printf ("caca %g %g %g\n", vert[0 + 3 * res], vert[1 + 3 * res], vert[2 + 3 * res]);
+	printf ("caca %g %g %g\n", vert[0 + 3 * (res + 1)], vert[1 + 3 * (res + 1)], vert[2 + 3 * (res + 1)]);
+	//exit(-2);
+	ind.resize((res) * (res - 1) * 4);
+	vector<GLushort>::iterator i = ind.begin();
+	for(int r = 0; r < res - 1; r++) {
+		for(int s = 0; s < res-1; s++) {
+			*i++ = r * res + s;
+			*i++ = r * res + (s + 1);
+			*i++ = (r+1) * res + (s + 1);
+			*i++ = (r+1) * res + s;
+		}
+		*i++ = r * res + res - 1;
+		*i++ = r * res;
+		*i++ = (r+1) * res;
+		*i++ = (r+1) * res + res - 1;
+	}
+	/*
+	for(int s = 0; s < res-1; s++) {
+		*i++ = (res - 1) * res + s;
+		*i++ = (res - 1) * res + (s + 1);
+		*i++ = (res - 1 +1) * res + (s + 1);
+		*i++ = (res - 1 +1) * res + s;
+	}*/
+	// debug
+	i = ind.begin();
+	//int cntr = 0;
+	cntr = 0;
+	printf("caca\n");
+	while (i != ind.end()) {
+		printf ("%d ", int(*i));
+		cntr ++;
+		if (cntr %4 == 0) printf  ("\n");
+		i ++;
+		
+		/*
+		unsigned short int l, m, n, o;
+		l = *i;
+		i ++;
+		m = *i;
+		i ++;
+		n = *i;
+		i ++;
+		o = *i;
+		i ++;
+		printf ("%d %d %d %d caca\n", l,  m, n, o);
+		*/
+	}
+	i = ind.begin();
+	printf ("caca %g %g\n", vert[0], vert[1]);
+	while (i != ind.end()) {
+		int l, m, n, o;
+		l = *i;
+		i ++;
+		m = *i;
+		i ++;
+		n = *i;
+		i ++;
+		o = *i;
+		i ++;
+		std::vector<GLfloat> dx;
+		dx.resize (3);
+		for (int k = 0; k < 3; k ++) dx[k] = vert[3 * (m) + k] - vert[3 * (l) + k]; 
+		printf ("%lf %lf %lf %lf %lf %lf gg\n", vert[3 * (l)], vert[3 * (l) + 1], vert[3 * (l) + 2], dx[0], dx[1], dx[2]);
+
+		for (int k = 0; k < 3; k ++) dx[k] = vert[3 * (n) + k] - vert[3 * (m) + k]; 
+		printf ("%lf %lf %lf %lf %lf %lf gg\n", vert[3 * (m)], vert[3 * (m) + 1], vert[3 * (m) + 2], dx[0], dx[1], dx[2]);
+
+		for (int k = 0; k < 3; k ++) dx[k] = vert[3 * (o) + k] - vert[3 * (n) + k];
+		printf ("%lf %lf %lf %lf %lf %lf gg\n", vert[3 * (n)], vert[3 * (n) + 1], vert[3 * (n) + 2], dx[0], dx[1], dx[2]);
+
+		for (int k = 0; k < 3; k ++) dx[k] = vert[3 * (l) + k] - vert[3 * (o) + k]; 
+		printf ("%lf %lf %lf %lf %lf %lf gg\n", vert[3 * (o)], vert[3 * (o) + 1], vert[3 * (o) + 2], dx[0], dx[1], dx[2]);
+	}
+	
+	// upper face
+	/*
+	vert = OGLCylinder::_vertices_uf;
+	norm = OGLCylinder::_normals_uf;
+	ind = OGLCylinder::_indices_uf;
+	vert.resize(res * res * 3);
+	norm.resize(res * res * 3);
+	v = vert.begin();
+	n = norm.begin();
+	for(int r = 0; r < res; r++) {
+		for(int s = 0; s < res; s++) {
+			float const x = cos(2*M_PI * s * S) * sin( M_PI * r * R );
+			float const y = sin(2*M_PI * s * S) * sin( M_PI * r * R );
+			float const z = 0.5;
+			
+			*v++ = x * radius;
+			*v++ = y * radius;
+			*v++ = z * radius;
+
+			*n++ = 0.;
+			*n++ = 0.;
+			*n++ = 1.;
+			
+		}
+	}
+	ind.resize(res * res * 4);
+	i = ind.begin();
+	for(int r = 0; r < res-1; r++) {
+		for(int s = 0; s < res-1; s++) {
+			*i++ = r * res + s;
+			*i++ = r * res + (s+1);
+			*i++ = (r+1) * res + (s+1);
+			*i++ = (r+1) * res + s;
+		}
+	}*/
+
+	OGLCylinder::_resolution = res;
+}
+
+void OGLCylinder::draw(int res) {
+	if(res != OGLCylinder::_resolution) OGLCylinder::_build(res);
+
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_NORMAL_ARRAY);
+	
+	/*
+	glVertexPointer(3, GL_FLOAT, 0, &OGLCylinder::_vertices_uf[0]);
+	glNormalPointer(GL_FLOAT, 0, &OGLCylinder::_normals_uf[0]);
+	glDrawElements(GL_QUADS, OGLCylinder::_indices_uf.size(), GL_UNSIGNED_SHORT, &OGLCylinder::_indices_uf[0]);
+	*/
+	
+	glVertexPointer(3, GL_FLOAT, 0, &OGLCylinder::_vertices_tube[0]);
+	glNormalPointer(GL_FLOAT, 0, &OGLCylinder::_normals_tube[0]);
+	glDrawElements(GL_QUADS, OGLCylinder::_indices_tube.size(), GL_UNSIGNED_SHORT, &OGLCylinder::_indices_tube[0]);
+	
+	/*
+	glVertexPointer(3, GL_FLOAT, 0, &OGLCylinder::_vertices_lf[0]);
+	glNormalPointer(GL_FLOAT, 0, &OGLCylinder::_normals_lf[0]);
+	glDrawElements(GL_QUADS, OGLCylinder::_indices_lf.size(), GL_UNSIGNED_SHORT, &OGLCylinder::_indices_lf[0]);
+	*/
+}
+

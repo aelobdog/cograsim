@@ -1,0 +1,33 @@
+INFO: seeding the RNG with 42
+INFO: Initializing backend 
+INFO: Backend precision: double
+INFO: Simulation type: VMMC
+INFO: The generator will try to take into account bonded interactions by choosing distances between bonded neighbours no larger than 2.000000
+INFO: pid: 11039
+INFO: Parsing Force file hairpin_forces.dat
+INFO:    Using temporary file
+INFO: Adding MutualTrap (stiff=1, rate=0, r0=1.2, ref_particle=16, PBC=0 on particle 1
+INFO:    Using temporary file
+INFO: Adding MutualTrap (stiff=1, rate=0, r0=1.2, ref_particle=15, PBC=0 on particle 2
+INFO:    Force file parsed
+INFO: (Cells.cpp) N_cells_side: 4, 4, 4; rcut=1.58378, IS_MC: 1
+INFO: N: 18
+WARNING: maxclust < 0, setting it to N = 18
+INFO: Not attempting to preserve topology; max_move_size = 21.6324
+INFO: SVN CODE VERSION: SVN_NOT_FOUND
+INFO: COMPILED ON: 20/04/21
+INFO: # Caught SIGNAL 2; setting stop = 1
+
+
+INFO: Total Running Time: 2.36651 s, per step: 0.138206 ms
+INFO: Timings, in seconds, by Timer (total, own, spent in children)
+> SimBackend                          2.367 (100.0%)        0.019 (  0.8%)        2.348 ( 99.2%)
+***> Rotations+Translations           2.348 ( 99.2%)        2.348 ( 99.2%)        0.000 (  0.0%)
+> Lists                               0.000 (  0.0%)        0.000 (  0.0%)        0.000 (  0.0%)
+
+INFO: END OF THE SIMULATION, everything went OK!
+INFO: Aggregated I/O statistics (set debug=1 for file-wise information)
+	  3.219 KB written to files
+	  0.000  B written to stdout/stderr
+	For a total of  0.00133 MB/s
+

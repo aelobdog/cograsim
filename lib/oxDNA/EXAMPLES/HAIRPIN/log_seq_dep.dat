@@ -1,0 +1,28 @@
+INFO: seeding the RNG with 42
+INFO: Initializing backend 
+INFO: Backend precision: double
+INFO: Simulation type: VMMC
+INFO: The generator will try to take into account bonded interactions by choosing distances between bonded neighbours no larger than 2.000000
+INFO: Using '../../oxDNA1_sequence_dependent_parameters.txt' as the input for sequence-dependent values
+INFO: pid: 11032
+INFO: (Cells.cpp) N_cells_side: 4, 4, 4; rcut=1.58378, IS_MC: 1
+INFO: N: 18
+WARNING: maxclust < 0, setting it to N = 18
+INFO: Not attempting to preserve topology; max_move_size = 21.6324
+INFO: SVN CODE VERSION: SVN_NOT_FOUND
+INFO: COMPILED ON: 20/04/21
+INFO: # Caught SIGNAL 2; setting stop = 1
+
+
+INFO: Total Running Time: 8.86363 s, per step: 0.124577 ms
+INFO: Timings, in seconds, by Timer (total, own, spent in children)
+> SimBackend                          8.864 (100.0%)        0.077 (  0.9%)        8.787 ( 99.1%)
+***> Rotations+Translations           8.787 ( 99.1%)        8.787 ( 99.1%)        0.000 (  0.0%)
+> Lists                               0.000 (  0.0%)        0.000 (  0.0%)        0.000 (  0.0%)
+
+INFO: END OF THE SIMULATION, everything went OK!
+INFO: Aggregated I/O statistics (set debug=1 for file-wise information)
+	  3.387 KB written to files
+	  0.000  B written to stdout/stderr
+	For a total of 0.000373 MB/s
+

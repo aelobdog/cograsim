@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,MCMovePatchyShape.so -o ../../../contrib/romano/MCMovePatchyShape.so CMakeFiles/MCMovePatchyShape.dir/src/Backends/MCMoves/MCMovePatchyShape.cpp.o CMakeFiles/MCMovePatchyShape.dir/src/Interactions/PatchyShapeInteraction.cpp.o CMakeFiles/MCMovePatchyShape.dir/src/Particles/PatchyShapeParticle.cpp.o 

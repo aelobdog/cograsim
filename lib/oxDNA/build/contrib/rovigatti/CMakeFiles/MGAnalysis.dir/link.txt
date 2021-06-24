@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,MGAnalysis.so -o ../../../contrib/rovigatti/MGAnalysis.so CMakeFiles/MGAnalysis.dir/src/Observables/MGAnalysis.cpp.o 

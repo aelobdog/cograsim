@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,Swim.so -o ../../../contrib/romano/Swim.so CMakeFiles/Swim.dir/src/Backends/MCMoves/Swim.cpp.o 

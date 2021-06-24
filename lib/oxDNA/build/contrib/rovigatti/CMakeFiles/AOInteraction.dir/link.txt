@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,AOInteraction.so -o ../../../contrib/rovigatti/AOInteraction.so CMakeFiles/AOInteraction.dir/src/Interactions/AOInteraction.cpp.o 

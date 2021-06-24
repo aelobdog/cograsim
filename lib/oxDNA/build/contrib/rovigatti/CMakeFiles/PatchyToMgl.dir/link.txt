@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,PatchyToMgl.so -o ../../../contrib/rovigatti/PatchyToMgl.so CMakeFiles/PatchyToMgl.dir/src/Observables/PatchyToMgl.cpp.o 

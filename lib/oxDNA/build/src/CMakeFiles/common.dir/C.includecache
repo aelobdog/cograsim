@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/avinash/Downloads/oxDNA/src/Utilities/time_scales/time_scales.c
+time_scales.h
+/home/avinash/Downloads/oxDNA/src/Utilities/time_scales/time_scales.h
+
+/home/avinash/Downloads/oxDNA/src/Utilities/time_scales/time_scales.h
+stdio.h
+-
+stdlib.h
+-
+math.h
+-
+

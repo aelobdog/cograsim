@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,ChiralRodInteraction.so -o ../../../contrib/romano/ChiralRodInteraction.so CMakeFiles/ChiralRodInteraction.dir/src/Interactions/ChiralRodInteraction.cpp.o CMakeFiles/ChiralRodInteraction.dir/__/__/src/Particles/SpheroCylinder.cpp.o 

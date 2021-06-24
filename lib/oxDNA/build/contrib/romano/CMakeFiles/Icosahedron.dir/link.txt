@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,Icosahedron.so -o ../../../contrib/romano/Icosahedron.so CMakeFiles/Icosahedron.dir/src/Particles/Icosahedron.cpp.o 

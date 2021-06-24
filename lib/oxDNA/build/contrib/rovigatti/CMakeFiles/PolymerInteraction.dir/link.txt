@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,PolymerInteraction.so -o ../../../contrib/rovigatti/PolymerInteraction.so CMakeFiles/PolymerInteraction.dir/src/Interactions/PolymerInteraction.cpp.o 

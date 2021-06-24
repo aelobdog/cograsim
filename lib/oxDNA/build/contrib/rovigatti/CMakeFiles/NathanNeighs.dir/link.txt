@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,NathanNeighs.so -o ../../../contrib/rovigatti/NathanNeighs.so CMakeFiles/NathanNeighs.dir/src/Observables/NathanNeighs.cpp.o  -lgsl -lgslcblas -lm 

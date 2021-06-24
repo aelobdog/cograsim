@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,RadialDensityProfile.so -o ../../../contrib/rovigatti/RadialDensityProfile.so CMakeFiles/RadialDensityProfile.dir/src/Observables/RadialDensityProfile.cpp.o 

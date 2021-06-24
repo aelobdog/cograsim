@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,FreeVolume.so -o ../../../contrib/romano/FreeVolume.so CMakeFiles/FreeVolume.dir/src/Observables/FreeVolume.cpp.o 

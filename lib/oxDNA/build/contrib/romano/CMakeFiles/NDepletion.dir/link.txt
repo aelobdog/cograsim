@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,NDepletion.so -o ../../../contrib/romano/NDepletion.so CMakeFiles/NDepletion.dir/src/Backends/MCMoves/NDepletion.cpp.o 

@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,PatchyShapeParticle.so -o ../../../contrib/romano/PatchyShapeParticle.so CMakeFiles/PatchyShapeParticle.dir/src/Particles/PatchyShapeParticle.cpp.o 

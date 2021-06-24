@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,Widom.so -o ../../../contrib/rovigatti/Widom.so CMakeFiles/Widom.dir/src/Observables/Widom.cpp.o 

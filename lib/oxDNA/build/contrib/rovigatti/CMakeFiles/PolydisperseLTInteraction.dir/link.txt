@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -D_FORCE_INLINES -O3 -DNDEBUG  -shared -Wl,-soname,PolydisperseLTInteraction.so -o ../../../contrib/rovigatti/PolydisperseLTInteraction.so CMakeFiles/PolydisperseLTInteraction.dir/src/Interactions/PolydisperseLTInteraction.cpp.o 
