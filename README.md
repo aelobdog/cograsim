@@ -16,7 +16,7 @@ The links of the original packages are
 
 # Usage
 ```
-./tool [option] [molecule]
+./cograsim [option] [molecule]
 
 Options:
 	sim	run simulations only, no visualization
