@@ -45,7 +45,8 @@ int main(int argc, char** argv) {
       system(command.c_str());
    }
    else if (argv[1] == string("list")) {
-      command = "ls ./molecules/" + molecule + "/ | grep \"input_\" | sed 's/^[^_]*_//' | sed 's/_/./g'"; // may not be the best way to do this, but it works
+      cout << "Found simulation files for the following Temperatures\n";
+      command = "ls ./molecules/" + molecule + "/ | grep \"input_\" | sed 's/^[^_]*_//' | sed 's/_/./g' | sed 's/$/°C&/'";
       system(command.c_str());
    }
    else if (argv[1] == string("get")) {
